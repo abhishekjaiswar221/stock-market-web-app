@@ -38,6 +38,7 @@ const SignUp = () => {
       console.error(error);
     }
   };
+
   return (
     <>
       <h1 className="form-title">Sign Up & Personalize</h1>
@@ -60,8 +61,10 @@ const SignUp = () => {
           error={errors.email}
           validation={{
             required: "Email is required",
-            pattern: /^\w+@\w+\.\w+$/,
-            message: "Email address is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Enter a valid email address",
+            },
           }}
         />
 
