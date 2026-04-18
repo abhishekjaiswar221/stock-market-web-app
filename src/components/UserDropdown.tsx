@@ -10,18 +10,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { signOut } from "@/lib/actions/auth.actions";
 import { IconLogout } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import NavItems from "./NavItems";
 
-const UserDropdown = () => {
+const UserDropdown = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
-    router.push("/sing-in");
+    await signOut();
+    router.push("/sign-in");
   };
-
-  const user = { name: "Abhishek", email: "abhishek@gmail.com" };
 
   return (
     <DropdownMenu>
