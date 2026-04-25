@@ -15,7 +15,13 @@ import { IconLogout } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import NavItems from "./NavItems";
 
-const UserDropdown = ({ user }: { user: User }) => {
+const UserDropdown = ({
+  user,
+  initialStocks,
+}: {
+  user: User;
+  initialStocks: StockWithWatchlistStatus[];
+}) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
@@ -74,7 +80,7 @@ const UserDropdown = ({ user }: { user: User }) => {
         <DropdownMenuSeparator className="hidden sm:block bg-gray-600" />
 
         <nav className="sm:hidden">
-          <NavItems />
+          <NavItems initialStocks={initialStocks} />
         </nav>
       </DropdownMenuContent>
     </DropdownMenu>
